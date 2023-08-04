@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   get '/users/profile', to: 'users#profile'
   get '/users/my_posts', to: 'users#my_posts'
 
-  # You can add routes for follow and other_author_profile actions if needed
 end

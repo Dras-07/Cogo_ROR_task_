@@ -19,25 +19,24 @@ class UsersController < ApplicationController
   end
 
   def profile
-    # Ensure you have some form of user authentication (e.g., JWT) to get the current user
+
     user = current_user
     render json: user
   end
 
   def my_posts
-    # Ensure you have some form of user authentication (e.g., JWT) to get the current user
+    
     user = current_user
     posts = user.posts
-    # Calculate stats: number of likes, number of comments, and views (if you have a view system)
     render json: posts, methods: [:likes_count, :comments_count, :views_count]
   end
 
   def follow
-    # Implement logic to follow other authors
+   
   end
 
   def other_author_profile
-    # Implement logic to view other authors' profiles
+  
   end
 
   private
