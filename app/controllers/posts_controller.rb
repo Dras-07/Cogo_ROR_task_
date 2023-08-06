@@ -7,8 +7,9 @@ class PostsController < ApplicationController
 
 
   def show
-    @post = Post.find(params[:id])
-    render json: @post, include: :likes
+    @post = Post.includes(:comments, :likes).find(params[:id])
+    render json: @post, include: { comments: {}, likes: {} }
+
   end
 
   # def show
