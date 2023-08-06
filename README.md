@@ -1,24 +1,66 @@
-# README
+1)Post Article
+Method:/POST
+URL:http://localhost:3000/posts
+{
+  "post": {
+    "title": "Sample Post",
+    "topic": "Technology",
+    "featured_image": "https://example.com/image.jpg",
+    "text": "This is the content of the post.",
+    "published_at": "2023-08-04T12:00:00",
+    "author": "John Doe"
+  }
+}
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2)Edit Article
+Method:/PATCH
+url:http://localhost:3000/posts/:id
 
-Things you may want to cover:
+{
+  "post": {
+    "title": "Updated Post Title",
+    "text": "This is the updated content of the post."
+  }
+}
 
-* Ruby version
+3)Search
+url:http://localhost:3000/posts/search
+method:POST
 
-* System dependencies
+{
+  "query": "technology"
+}
 
-* Configuration
 
-* Database creation
+4)User registration:
+URL: http://localhost:3000/users/register
+Method: POST
 
-* Database initialization
+{
+  "user": {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "securepassword",
+    "password_confirmation": "securepassword"
+  }
+}
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+5)User login:
+URL: http://localhost:3000/users/login
+Method: POST
+{
+  "email": "newuser@example.com",
+  "password": "securepassword"
+}
 
-* Deployment instructions
 
-* ...
+6)Create a new comment on a post:
+URL: http://localhost:3000/posts/:post_id/comments 
+Method: POST
+{
+  "comment": {
+    "text": "This is a new comment."
+  }
+}
+
