@@ -17,15 +17,26 @@ class PostsController < ApplicationController
   #   render json: post
   # end
 
-  def create
-    post = Post.new(post_params)
+  # def create
+  #   post = Post.new(post_params)
 
-    if post.save
-      render json: post, status: :created
+  #   if post.save
+  #     render json: post, status: :created
+  #   else
+  #     render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+
+  def create
+    @post = Post.new(post_params)
+    @post.published_at = Time.zone.now # Set the current timestamp
+    if @post.save
+      render json: @post, status: :created
     else
-      render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
+
 
   def update
     post = Post.find(params[:id])
@@ -60,7 +71,9 @@ class PostsController < ApplicationController
 
   private
 
+ 
   def post_params
-    params.require(:post).permit(:title, :topic, :featured_image, :text, :published_at, :author)
+    params.require(:post).permit(:title, :topic, :featured_image, :text, :author)
   end
+
 end

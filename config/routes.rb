@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create]
     resources :comments, only: [:create]
+    
+  end
+
+  resources :posts do
+    member do
+      delete :destroy, as: :delete_post
+    end
   end
 
   post '/posts/filter', to: 'posts#filter'
