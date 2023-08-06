@@ -4,14 +4,13 @@ Method:/POST
 
 ```JSON
 URL:http://localhost:3000/posts
-
+BODY:
 {
   "post": {
     "title": "Sample Post",
     "topic": "Technology",
     "featured_image": "https://example.com/image.jpg",
     "text": "This is the content of the post.",
-    "published_at": "2023-08-04T12:00:00",
     "author": "John Doe"
   }
 }
