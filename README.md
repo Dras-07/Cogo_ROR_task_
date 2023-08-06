@@ -1,6 +1,10 @@
 1)Post Article
+
 Method:/POST
+
+```JSON
 URL:http://localhost:3000/posts
+
 {
   "post": {
     "title": "Sample Post",
@@ -11,9 +15,12 @@ URL:http://localhost:3000/posts
     "author": "John Doe"
   }
 }
-
+```
 2)Edit Article
+
 Method:/PATCH
+
+```JSON
 url:http://localhost:3000/posts/:id
 
 {
@@ -22,8 +29,10 @@ url:http://localhost:3000/posts/:id
     "text": "This is the updated content of the post."
   }
 }
-
+```
 3)Search
+
+```JSON
 url:http://localhost:3000/posts/search
 method:POST
 
@@ -31,8 +40,10 @@ method:POST
   "query": "technology"
 }
 
-
+```
 4)User registration:
+
+```JSON
 URL: http://localhost:3000/users/register
 Method: POST
 
@@ -45,17 +56,20 @@ Method: POST
   }
 }
 
-
+```
 5)User login:
+
+```JSON
 URL: http://localhost:3000/users/login
 Method: POST
 {
   "email": "newuser@example.com",
   "password": "securepassword"
 }
-
+```
 
 6)Create a new comment on a post:
+```JSON
 URL: http://localhost:3000/posts/:post_id/comments 
 Method: POST
 {
@@ -63,4 +77,5 @@ Method: POST
     "text": "This is a new comment."
   }
 }
+```
 
