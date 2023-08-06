@@ -1,24 +1,115 @@
-# README
+1)Post Article
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Method:/POST
 
-Things you may want to cover:
+```JSON
+URL:http://localhost:3000/posts
 
-* Ruby version
+{
+  "post": {
+    "title": "Sample Post",
+    "topic": "Technology",
+    "featured_image": "https://example.com/image.jpg",
+    "text": "This is the content of the post.",
+    "published_at": "2023-08-04T12:00:00",
+    "author": "John Doe"
+  }
+}
+```
+2)Edit Article
 
-* System dependencies
+Method:/PATCH
 
-* Configuration
+```JSON
+url:http://localhost:3000/posts/:id
 
-* Database creation
+{
+  "post": {
+    "title": "Updated Post Title",
+    "text": "This is the updated content of the post."
+  }
+}
+```
+3)Search
 
-* Database initialization
+```JSON
+url:http://localhost:3000/posts/search
+method:POST
 
-* How to run the test suite
+{
+  "query": "technology"
+}
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+4)User registration:
 
-* Deployment instructions
+```JSON
+URL: http://localhost:3000/users/register
+Method: POST
 
-* ...
+{
+  "user": {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "securepassword",
+    "password_confirmation": "securepassword"
+  }
+}
+
+```
+5)User login:
+
+```JSON
+URL: http://localhost:3000/users/login
+Method: POST
+{
+  "email": "newuser@example.com",
+  "password": "securepassword"
+}
+```
+
+6)Create a new comment on a post:
+```JSON
+URL: http://localhost:3000/posts/:post_id/comments 
+Method: POST
+{
+  "comment": {
+    "text": "This is a new comment."
+  }
+}
+```
+7) GET POST
+
+```JSON
+URL: http://localhost:3000/posts/:postid
+Method:GET
+Response:
+{
+    "id": 1,
+    "title": "Updated Post Title",
+    "topic": "Technology",
+    "featured_image": "https://example.com/image.jpg",
+    "text": "This is the updated content of the post.",
+    "published_at": "2023-08-04T12:00:00.000Z",
+    "author": "John Doe",
+    "created_at": "2023-08-04T06:08:47.471Z",
+    "updated_at": "2023-08-06T05:49:10.455Z",
+    "comments": [
+        {
+            "id": 1,
+            "post_id": 1,
+            "text": "This is the comment text.",
+            "created_at": "2023-08-04T06:28:13.318Z",
+            "updated_at": "2023-08-04T06:28:13.318Z"
+        },
+        {
+            "id": 2,
+            "post_id": 1,
+            "text": "This is a new comment.",
+            "created_at": "2023-08-06T05:53:08.625Z",
+            "updated_at": "2023-08-06T05:53:08.625Z"
+        }
+    ],
+    "likes": []
+}
+```
